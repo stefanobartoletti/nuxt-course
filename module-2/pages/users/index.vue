@@ -23,4 +23,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.container {
+  flex-direction: column;
+}
+
+</style>
