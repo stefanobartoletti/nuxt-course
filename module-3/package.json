@@ -1,0 +1,17 @@
+{
+  "name": "module-3",
+  "version": "1.0.0",
+  "description": "My slick Nuxt.js project",
+  "author": "stefano-b",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {}
+}
