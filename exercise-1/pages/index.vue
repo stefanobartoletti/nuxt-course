@@ -5,6 +5,7 @@
       <li>Add a button to the main page. The button should navigate (programmatically) to /products</li>
       <li>Add two links to the /products page. The links should go to /products/1 and /products/2</li>
       <li>Output the product id on the /products/:pid page</li>
+      <button @click="gotoProducts">Go to Products</button>
     </ol>
   </section>
 </template>
@@ -15,7 +16,12 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
-  }
+  },
+  methods: {
+    gotoProducts() {
+      this.$router.push('/products')
+    }
+  },
 }
 </script>
 
