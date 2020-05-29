@@ -34,4 +34,10 @@ export default {};
   align-items: center;
   width: 80%;
 }
+
+.nav-items a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+}
 </style>
