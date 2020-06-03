@@ -3,35 +3,16 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
-    <section class="featured-posts">
-      <post-preview
-        id="1"
-        title="Post 1 Title"
-        thumbnail="https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg"
-        previewText="Lorem ipsum post 1"
-      />
-      <post-preview
-        id="2"
-        title="Post 2 Title"
-        thumbnail="https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg"
-        previewText="Lorem ipsum post 2"
-      />
-      <post-preview
-        id="3"
-        title="Post 3 Title"
-        thumbnail="https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg"
-        previewText="Lorem ipsum post 3"
-      />
-    </section>
+    <post-list></post-list>
   </div>
 </template>
 
 <script>
-import PostPreview from "~/components/Post/PostPreview";
+import PostList from "~/components/Post/PostList";
 
 export default {
   components: {
-    PostPreview
+    PostList
   }
 };
 </script>
@@ -66,14 +47,5 @@ export default {
   .intro h1 {
     font-size: 2rem;
   }
-}
-
-.featured-posts {
-  display: flex;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 </style>

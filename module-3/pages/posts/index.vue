@@ -1,20 +1,25 @@
 <template>
   <div class="posts-page">
-
+    <post-list></post-list>
   </div>
 </template>
 
 <script>
-export default {
+import PostList from "~/components/Post/PostList";
 
-}
+export default {    
+  components: {
+    PostList
+  }
+};
 </script>
 
 <style scoped>
 .posts-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+
 </style>
