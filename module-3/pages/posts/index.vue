@@ -10,7 +10,7 @@ import PostList from "~/components/Post/PostList";
 export default {    
   components: {
     PostList
-  }
+  },
 };
 </script>
 

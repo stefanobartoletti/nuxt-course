@@ -18,6 +18,7 @@ export default {
 components: {
     AppButton,
 },
+layout: 'admin'
 }
 </script>
 
