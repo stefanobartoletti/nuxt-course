@@ -44,7 +44,7 @@ export default {
           {
             id: "4",
             title: "Unfinished Tales",
-            thumbnail: "",
+            thumbnail: "https://kbimages1-a.akamaihd.net/2305828e-43b9-4985-948a-f6974daf1239/353/569/90/False/unfinished-tales-of-numenor-and-middle-earth.jpg",
             previewText: "of Numenor and Middle-earth"
           }
         ]
