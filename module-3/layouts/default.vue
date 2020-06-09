@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import TheHeader from "@/components/Navigation/TheHeader";
-import TheSidenav from "@/components/Navigation/TheSidenav";
+import TheHeader from '@/components/Navigation/TheHeader';
+import TheSidenav from '@/components/Navigation/TheSidenav';
 
 export default {
   data() {
     return {
-      displaySidenav: false,
-    }
+      displaySidenav: false
+    };
   },
   components: {
     TheHeader,
@@ -25,8 +25,8 @@ export default {
 
 <style>
 html {
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

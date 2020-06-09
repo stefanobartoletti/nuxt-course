@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import PostPreview from "~/components/Post/PostPreview";
+import PostPreview from '~/components/Post/PostPreview';
 
 export default {
   props: {

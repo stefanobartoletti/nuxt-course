@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import AdminPostForm from "@/components/Admin/AdminPostForm";
+import AdminPostForm from '@/components/Admin/AdminPostForm';
 
 export default {
   data() {
     return {
       loadedPost: {
-        author: "Bilbo Baggins",
-        title: "The Hobbit",
-        content: "In a hole in the ground there lived a hobbit",
+        author: 'Bilbo Baggins',
+        title: 'The Hobbit',
+        content: 'In a hole in the ground there lived a hobbit',
         thumbnailLink:
-          "https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg"
+          'https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg'
       }
     };
   },
