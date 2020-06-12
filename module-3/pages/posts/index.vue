@@ -1,15 +1,20 @@
 <template>
   <div class="posts-page">
-    <post-list></post-list>
+    <post-list :posts="loadedPosts"></post-list>
   </div>
 </template>
 
 <script>
-import PostList from "~/components/Post/PostList";
+import PostList from '~/components/Post/PostList';
 
-export default {    
+export default {
   components: {
     PostList
+  },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts 
+    }
   },
 };
 </script>
@@ -20,6 +25,4 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
-
 </style>

@@ -3,14 +3,24 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
-    <post-list></post-list>
+    <post-list :posts="loadedPosts"></post-list>
   </div>
 </template>
 
 <script>
-import PostList from "~/components/Post/PostList";
+import PostList from '~/components/Post/PostList';
 
 export default {
+  // data() {
+  //   return {
+  //     loadedPosts: []
+  //   };
+  // },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts 
+    }
+  },
   components: {
     PostList
   }

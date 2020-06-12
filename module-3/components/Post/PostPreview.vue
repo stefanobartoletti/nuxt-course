@@ -1,10 +1,7 @@
 <template>
   <nuxt-link :to="postLink" class="post-preview">
     <article>
-      <div
-        class="post-thumbnail"
-        :style="{backgroundImage: 'url(' + thumbnail + ')'}"
-      ></div>
+      <div class="post-thumbnail" :style="{backgroundImage: 'url(' + thumbnail + ')'}"></div>
       <div class="post-content">
         <h2>{{ title }}</h2>
         <p>{{ previewText }}</p>
@@ -15,7 +12,7 @@
 
 <script>
 export default {
-  name: "PostPreview",
+  name: 'PostPreview',
   props: {
     id: {
       type: String,
@@ -38,11 +35,11 @@ export default {
       required: true
     }
   },
-computed: {
-  postLink() {
-    return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id;
+  computed: {
+    postLink() {
+      return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id;
+    }
   }
-},
 };
 </script>
 

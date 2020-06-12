@@ -1,31 +1,19 @@
 <template>
   <section class="post-list">
     <post-preview
-      id="1"
+      v-for="post in posts"
+      :key="post.id"
       :is-admin="isAdmin"
-      title="Post 1 Title"
-      thumbnail="https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg"
-      previewText="Lorem ipsum post 1"
-    />
-    <post-preview
-      id="2"
-      :is-admin="isAdmin"
-      title="Post 2 Title"
-      thumbnail="https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg"
-      previewText="Lorem ipsum post 2"
-    />
-    <post-preview
-      id="3"
-      :is-admin="isAdmin"
-      title="Post 3 Title"
-      thumbnail="https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg"
-      previewText="Lorem ipsum post 3"
+      :id="post.id"
+      :title="post.title"
+      :thumbnail="post.thumbnail"
+      :previewText="post.previewText"
     />
   </section>
 </template>
 
 <script>
-import PostPreview from "~/components/Post/PostPreview";
+import PostPreview from '~/components/Post/PostPreview';
 
 export default {
   props: {
@@ -33,6 +21,10 @@ export default {
       type: Boolean,
       default: false
     },
+    posts: {
+      type: Array,
+      required: true
+    }
   },
   components: {
     PostPreview

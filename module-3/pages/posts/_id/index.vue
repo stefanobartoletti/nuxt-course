@@ -1,27 +1,45 @@
 <template>
   <div class="single-post-page">
-      <section class="post">
-          <h1 class="post-title">Post Title</h1>
-          <div class="post-details">
-              <p class="post-detail">Posted on XXX</p>
-              <p class="post-detail">Written by YYY</p>
-          </div>
-          <div>Post Content</div>
-      </section>
-      <section class="post-feedback">
-          <p>Write a mail to <a href="mailto:test@example.com">test@example.com</a>.</p>
-      </section>
+    <section class="post">
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
+      <div class="post-details">
+        <p class="post-detail">Posted on {{ loadedPost.updatedDate }}</p>
+        <p class="post-detail">Written by {{ loadedPost.author }}</p>
+      </div>
+      <div>{{ loadedPost.content }}</div>
+    </section>
+    <section class="post-feedback">
+      <p>
+        Write a mail to
+        <a href="mailto:test@example.com">test@example.com</a>.
+      </p>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPost: {
+          id: '1',
+          title: 'The Hobbit (ID: ' + context.route.params.id + ' )',
+          author: 'J.R.R. Tolkien',
+          updatedDate: new Date(),
+          thumbnail:
+            'https://kbimages1-a.akamaihd.net/1db01021-c0ce-4afc-93fe-3030acdf86df/353/569/90/False/the-hobbit-3.jpg',
+          previewText: 'An unexpected party',
+          content:
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis recusandae laborum ut minima nam dolorum quis provident, iste officia reprehenderit ad tempore quam ducimus vitae esse aliquid, natus dolorem quidem!'
+        }
+      });
+    }, 1000);
+  }
+};
 </script>
 
 <style>
-
 .single-post-page {
   padding: 30px;
   text-align: center;
@@ -73,5 +91,4 @@ export default {
 .post-feedback a:active {
   color: salmon;
 }
-
 </style>

@@ -27,4 +27,5 @@ export default {
   .new-post-form {
     width: 500px;
   }
-}</style>
+}
+</style>
