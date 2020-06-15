@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 import AdminPostForm from '@/components/Admin/AdminPostForm';
 
 export default {
@@ -16,9 +16,10 @@ export default {
   },
   methods: {
     onSubmitted(postData) {
-      axios.post('https://sb-nuxt-blog.firebaseio.com/posts.json', postData)
-      .then(result => console.log(result))
-      .catch(e => console.log(e))
+      axios
+        .post('https://sb-nuxt-blog.firebaseio.com/posts.json', postData)
+        .then(result => console.log(result))
+        .catch(e => console.log(e));
     }
   },
   layout: 'admin'
