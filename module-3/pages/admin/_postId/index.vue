@@ -20,7 +20,7 @@ export default {
       )
       .then(res => {
         return {
-          loadedPost: res.data
+          loadedPost: { ...res.data, id: context.params.postId }
         };
       })
       .catch(e => context.error(e));
@@ -30,14 +30,9 @@ export default {
   },
   methods: {
     onSubmitted(editedPost) {
-      axios
-        .put('https://sb-nuxt-blog.firebaseio.com/posts/' +
-          this.$route.params.postId +
-          '.json', editedPost)
-        .then(res => {
-          this.$router.push('/admin')
-          console.log(res)})
-        .catch(e => console.log(e));
+      this.$store.dispatch('editPost', editedPost).then(() => {
+        this.$router.push('/admin');
+      });
     }
   },
   layout: 'admin'
