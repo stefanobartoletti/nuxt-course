@@ -1,28 +1,39 @@
 <template>
   <div class="admin-post-page">
     <section class="update-form">
-      <admin-post-form :post="loadedPost"></admin-post-form>
+      <admin-post-form :post="loadedPost" @submit="onSubmitted"></admin-post-form>
     </section>
   </div>
 </template>
 
 <script>
 import AdminPostForm from '@/components/Admin/AdminPostForm';
+import axios from 'axios';
 
 export default {
-  data() {
-    return {
-      loadedPost: {
-        author: 'Bilbo Baggins',
-        title: 'The Hobbit',
-        content: 'In a hole in the ground there lived a hobbit',
-        thumbnailLink:
-          'https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg'
-      }
-    };
+  asyncData(context) {
+    return axios
+      .get(
+        'https://sb-nuxt-blog.firebaseio.com/posts/' +
+          context.params.postId +
+          '.json'
+      )
+      .then(res => {
+        return {
+          loadedPost: { ...res.data, id: context.params.postId }
+        };
+      })
+      .catch(e => context.error(e));
   },
   components: {
     AdminPostForm
+  },
+  methods: {
+    onSubmitted(editedPost) {
+      this.$store.dispatch('editPost', editedPost).then(() => {
+        this.$router.push('/admin');
+      });
+    }
   },
   layout: 'admin'
 };

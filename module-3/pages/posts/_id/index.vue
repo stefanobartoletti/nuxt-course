@@ -18,23 +18,22 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: '1',
-          title: 'The Hobbit (ID: ' + context.route.params.id + ' )',
-          author: 'J.R.R. Tolkien',
-          updatedDate: new Date(),
-          thumbnail:
-            'https://kbimages1-a.akamaihd.net/1db01021-c0ce-4afc-93fe-3030acdf86df/353/569/90/False/the-hobbit-3.jpg',
-          previewText: 'An unexpected party',
-          content:
-            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis recusandae laborum ut minima nam dolorum quis provident, iste officia reprehenderit ad tempore quam ducimus vitae esse aliquid, natus dolorem quidem!'
+  asyncData(context) {
+    return axios
+      .get(
+        'https://sb-nuxt-blog.firebaseio.com/posts/' +
+          context.params.id +
+          '.json'
+      )
+      .then(res => {
+        return {
+          loadedPost: res.data,
         }
-      });
-    }, 1000);
+      })
+      .catch(e => context.error(e));
   }
 };
 </script>

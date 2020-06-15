@@ -5,7 +5,7 @@
     </section>
     <section class="existing-posts">
       <h1>Existing posts</h1>
-      <post-list isAdmin></post-list>
+      <post-list isAdmin :posts="loadedPosts"></post-list>
     </section>
   </div>
 </template>
@@ -16,7 +16,13 @@ import AppButton from '@/components/UI/AppButton';
 
 export default {
   components: {
-    AppButton
+    AppButton,
+    PostList
+  },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts; 
+    }
   },
   layout: 'admin'
 };
