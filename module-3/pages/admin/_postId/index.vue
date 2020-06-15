@@ -8,18 +8,22 @@
 
 <script>
 import AdminPostForm from '@/components/Admin/AdminPostForm';
+import axios from 'axios';
 
 export default {
-  data() {
-    return {
-      loadedPost: {
-        author: 'Bilbo Baggins',
-        title: 'The Hobbit',
-        content: 'In a hole in the ground there lived a hobbit',
-        thumbnailLink:
-          'https://apod.nasa.gov/apod/image/2004/ISS002-E-7377_1024c.jpg'
-      }
-    };
+  asyncData(context) {
+    return axios
+      .get(
+        'https://sb-nuxt-blog.firebaseio.com/posts/' +
+          context.params.postId +
+          '.json'
+      )
+      .then(res => {
+        return {
+          loadedPost: res.data
+        };
+      })
+      .catch(e => context.error(e));
   },
   components: {
     AdminPostForm
