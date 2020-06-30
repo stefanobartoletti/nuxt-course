@@ -3,7 +3,7 @@
     <section class="post">
       <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <p class="post-detail">Posted on {{ loadedPost.updatedDate }}</p>
+        <p class="post-detail">Posted on {{ loadedPost.updatedDate | date }}</p>
         <p class="post-detail">Written by {{ loadedPost.author }}</p>
       </div>
       <div>{{ loadedPost.content }}</div>
@@ -18,19 +18,16 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
   asyncData(context) {
-    return axios
-      .get(
-        'https://sb-nuxt-blog.firebaseio.com/posts/' +
+    return context.app.$axios.$get(
+          '/posts/' +
           context.params.id +
           '.json'
       )
-      .then(res => {
+      .then(data => {
         return {
-          loadedPost: res.data,
+          loadedPost: data,
         }
       })
       .catch(e => context.error(e));

@@ -16,6 +16,7 @@
 import PostPreview from '~/components/Post/PostPreview';
 
 export default {
+  name: 'PostList',
   props: {
     isAdmin: {
       type: Boolean,

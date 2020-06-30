@@ -12,9 +12,6 @@
 </template>
 
 <script>
-import AppControlInput from '@/components/UI/AppControlInput';
-import AppButton from '@/components/UI/AppButton';
-
 export default {
   data() {
     return {
@@ -36,10 +33,6 @@ export default {
       type: Object,
       required: false
     }
-  },
-  components: {
-    AppControlInput,
-    AppButton
   },
   methods: {
     onSave() {
