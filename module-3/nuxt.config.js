@@ -49,5 +49,8 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://sb-nuxt-blog.firebaseio.com'
   }
 }
