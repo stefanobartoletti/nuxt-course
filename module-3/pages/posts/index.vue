@@ -5,12 +5,7 @@
 </template>
 
 <script>
-import PostList from '~/components/Post/PostList';
-
 export default {
-  components: {
-    PostList
-  },
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts 
